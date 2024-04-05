@@ -27,10 +27,17 @@ class NewtonsMethodApp:
         self.calculate_CTkButton = customtkinter.CTkButton(master, text="Calculate", command=self.calculate)
         self.calculate_CTkButton.grid(row=3, columnspan=2)
 
+        self.clear_CTkButton = customtkinter.CTkButton(master, text="Clear", command=self.clear)
+        self.clear_CTkButton.grid(row=4, columnspan=2)
+
     def calculate(self):
         num = float(self.num_CTkEntry.get())
         initial_guess = float(self.guess_CTkEntry.get())
         self.root(num, initial_guess)
+        # self.result_CTkTextbox.delete("0.0", "end")
+
+    def clear(self):
+        self.result_CTkTextbox.delete("0.0", "end")
 
     def root(self, num, initial_guess):
         approximated = False
