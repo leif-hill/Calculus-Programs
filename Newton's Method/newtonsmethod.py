@@ -18,4 +18,4 @@ def root(num, initial_guess, iterations):
             approximated = True
             print("Finished.")
 
-root(10, 2, 5)
+root(5, 2, 5)
