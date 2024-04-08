@@ -50,7 +50,7 @@ class NewtonsMethodApp:
         x = initial_guess
 
         while not approximated:
-            if (x == math.sqrt(num)):
+            if math.isclose(x, math.sqrt(num), rel_tol=1e-10):
                 approximated = True
                 self.result_CTkTextbox.insert(customtkinter.END, "********************************************************\n")
                 self.result_CTkTextbox.insert(customtkinter.END, "Finished.\n")
@@ -60,7 +60,7 @@ class NewtonsMethodApp:
                 percent_diff = (abs(x - math.sqrt(num)) / ((math.sqrt(num)+x)/2) * 100.0)
                 self.result_CTkTextbox.insert(customtkinter.END, "********************************************************\n")
                 self.result_CTkTextbox.insert(customtkinter.END, "Iteration #{} {}\n".format(iteration, x))
-                self.result_CTkTextbox.insert(customtkinter.END, "Absolute Error:{} (Approx. {}%)\n".format((math.sqrt(num)-x), round(percent_diff, 2)))
+                self.result_CTkTextbox.insert(customtkinter.END, "Absolute Error:{} (Approx. {}%)\n".format((math.sqrt(num)-x), round(percent_diff, 3)))
 
 def main():
     root = customtkinter.CTk()
